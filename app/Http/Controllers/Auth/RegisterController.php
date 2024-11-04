@@ -11,7 +11,6 @@ class RegisterController extends Controller
 {
     public function store(UserValidation $request)
     {
-
         $user = new User();
         $user->username = $request->username;
         $user->email = $request->email;
