@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserValidation;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserOtpMail;
 
 
 class UserConroller extends Controller
@@ -80,5 +82,18 @@ class UserConroller extends Controller
             $user->delete();
             return redirect()->route('user.index')->with('success', 'User deleted successfully.');
         }
+    }
+
+    public function sendOtp(string $id)
+    {
+        $user = User::find($id);
+        $data = [
+            'otp' => rand(1000, 9999),
+            'username' => $user->username,
+        ];
+
+        Mail::to($user->email)->send(new UserOtpMail($data));
+
+        return redirect()->route('user.index')->with('success', 'Mail sent successfully.');
     }
 }

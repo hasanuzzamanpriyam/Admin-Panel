@@ -16,6 +16,7 @@ class RegisterController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
+
         return redirect()->route('login');
     }
 }

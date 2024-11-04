@@ -45,7 +45,8 @@
                                             <td>{{ $user->username }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>
-                                                {{-- <a href="#" class="btn btn-default">Edit</a> --}}
+                                                <a href="{{ route('user.otp', $user->id) }}"
+                                                    class="btn btn-default">Send OTP</a>
                                                 <a href="{{ route('user.delete', $user->id) }}"
                                                     class="btn btn-default">Delete</a>
                                             </td>
