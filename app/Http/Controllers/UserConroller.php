@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserValidation;
 use App\Models\User;
@@ -88,11 +89,14 @@ class UserConroller extends Controller
     {
         $user = User::find($id);
         $data = [
-            'otp' => rand(1000, 9999),
+            'id' => $user->id,
+            'otp' => rand(100000, 999999),
             'username' => $user->username,
         ];
 
-        Mail::to($user->email)->send(new UserOtpMail($data));
+        dispatch(new \App\Jobs\jobs($data));
+
+        // Mail::to($user->email)->send(new UserOtpMail($data));
 
         return redirect()->route('user.index')->with('success', 'Mail sent successfully.');
     }

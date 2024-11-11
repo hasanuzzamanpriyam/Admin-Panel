@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>Welcome <strong>{{ $data['username'] }}</strong></h1>
-    <h5>Your OTP is <strong>{{ $data['otp'] }}</strong></h5>
+    <h2>Your OTP is <strong>{{ $data['otp'] }}</strong></h2>
 </body>
 </html>
