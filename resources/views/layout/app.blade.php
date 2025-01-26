@@ -17,6 +17,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
+    <style>
+        .left_col {
+            background: #47f4a9;
+        }
+    </style>
 </head>
 
 <body class="nav-md">

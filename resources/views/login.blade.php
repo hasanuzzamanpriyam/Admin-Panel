@@ -27,13 +27,13 @@
                 @csrf
               <h1>Login Form</h1>
               <div>
-                <input type="email" class="form-control" placeholder="Email" name="email" required="" />
+                <input type="email" class="form-control" placeholder="Email" name="email" required/>
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" name="password" required="" />
+                <input type="password" class="form-control" placeholder="Password" name="password" required/>
                 @error('password')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

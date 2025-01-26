@@ -16,9 +16,11 @@ class LoginController extends Controller
         ]);
         if (Auth::attempt($validate)) {
             $request->session()->regenerate();
-            return view('dashboard')->with('success', 'Login successfully.');
+            return redirect()->route('dashboard')->with('success', 'Login successfully.');
         }
-        return redirect()->route('login');
+        return redirect()->route('login')->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
     }
 
     public function logout(Request $request)

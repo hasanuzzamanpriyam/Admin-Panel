@@ -19,6 +19,10 @@ Route::get('user/create', function () {
     return view('create');
 })->name('user.create');
 
+Route::get('dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 
 Route::post('register', [RegisterController::class, 'store'])->name('user.register');
 Route::post('login', [LoginController::class, 'login'])->name('user.login');
