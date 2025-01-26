@@ -21,9 +21,8 @@ class UserConroller extends Controller
         $users = User::paginate(5);
 
         if ($search) {
-        $users = User::where('username', 'like', '%' . $search . '%')
-        ->orWhere('email', 'like', '%' . $search . '%')->paginate(5);
-
+            $users = User::where('username', 'like', '%' . $search . '%')
+                ->orWhere('email', 'like', '%' . $search . '%')->paginate(5);
         }
         return view('list', compact('users', 'search'));
     }
